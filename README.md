@@ -6,5 +6,6 @@ Members:
     
     Arnauld BIAM
     Amine FAIZ
+    Amayas KHELFOUNE
     Zohir MALTI
     Djamel RAAB
