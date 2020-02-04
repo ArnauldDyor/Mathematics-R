@@ -8,7 +8,7 @@ Cet exercice étudie le niveau de bruit émis par des véhicules dans une rue de
 Decibel <- c(54.8,55.4,57.7,59.6,60.1,61.2,62,63.1,63.5,64.2,65.2,65.4,65.9,66,67.6,68.1,69.5,70.6,71.5,73.4)
 ```
 
-`Moyenne`
+**Moyenne**
 ```R
 moyenne <- mean(Decibel)
 
@@ -66,7 +66,7 @@ hist(Decibel, breaks, col = "red")
 On suppose que l'échantillon Decibel est issu d'une loi normale
 - Estimation de la moyenne et de la variance d'un tel échantillon
 
-*Pour ce faire, il faut dans un premier temps normaliser le vecteur
+*Pour ce faire, il faut dans un premier temps normaliser le vecteur*
 ```
 normaliseDecibel <- scale(Decibel)
 
