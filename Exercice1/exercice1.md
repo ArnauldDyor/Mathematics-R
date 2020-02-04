@@ -8,37 +8,37 @@ Cet exercice étudie le niveau de bruit émis par des véhicules dans une rue de
 Decibel <- c(54.8,55.4,57.7,59.6,60.1,61.2,62,63.1,63.5,64.2,65.2,65.4,65.9,66,67.6,68.1,69.5,70.6,71.5,73.4)
 ```
 
-**Moyenne**
+> Moyenne
 ```R
 moyenne <- mean(Decibel)
 
 output: 64.24
 ```
-`Médiane`
+> Médiane
 ```R
 median(Decibel)
 
 output: 64.7
 ```
-`Variance`
+> Variance
 ```
 var(Decibel)
 
 output: 26.51832
 ```
-`Ecart-type`
+> Ecart-type
 ```
 ecart <- sd(Decibel)
 
 output: 5.1495937499451
 ```
-`Coefficients de variation`
+> Coefficients de variation
 ```
 coefV <- ecart/moyenne
 
 output: 0.0801617956093572
 ```
-`Quartiles empiriques`
+> Quartiles empiriques
 ```
 quantile(Decibel)
 
