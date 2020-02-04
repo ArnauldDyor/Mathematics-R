@@ -53,14 +53,14 @@ output:
 ```
 hist(Decibel, col = "skyblue", right = FALSE )
 ```
-![histogramme même largeur](../Screenshots/hist1.png)
+![histogramme même largeur](../Screenshots/hist1.PNG)
 
 - histogramme à classes de même effectif
 ```
 breaks <- c(54.8, quantile(Decibel,seq(1,19)/20),73.4) 
 hist(Decibel, breaks, col = "red")
 ```
-![histogramme même effectif](../Screenshots/hist2.png)
+![histogramme même effectif](../Screenshots/hist2.PNG)
 
 ### Question 3
 On suppose que l'échantillon Decibel est issu d'une loi normale
