@@ -66,17 +66,56 @@ hist(Decibel, breaks, col = "red")
 On suppose que l'échantillon Decibel est issu d'une loi normale
 - Estimation de la moyenne et de la variance d'un tel échantillon
 
-*Pour ce faire, il faut dans un premier temps normaliser le vecteur*
-```
-normaliseDecibel <- scale(Decibel)
+*Pour ce faire, il faut dans un premier temps déterminer une loi normale à notre échantillon*.
 
-estimation_moyenne <- mean(normaliseDecibel)
-
-output: 1.09915332044408e-15
+On se servira ainsi de la fonction **fitdistr** de la library **MASS**.
 ```
+fitDecibel <- fitdistr(Decibel, densfun="normal")
+```
+output:
+![fitDecibel](../Screenshots/fit1.PNG)
+
+L'estimation de la moyenne est **64.24** et celle de la variance est le carrée l'écart-type obtenu soit **25,2**
+
+- Probabilité que le niveau de bruit dépasse 70db.
+
+On suppose que X soit la variable aléatoire de notre distribution normale représentant le niveau de bruit émis par les voitures.
+
+on veut donc calculer **P(X>70)**
+P(X>70)=1-P(0<X<70)
+```
+1-pnorm(70, mean=64.24, sd=5.02)
+
+output: 0.125606
+``` 
+La probabilité que le niveau de bruit dépasse 70db est de *12,56%*
+
+- Probabilité que le niveau de bruit dépasse 74db
+
+On suit le même raisonnement que précédemment pour **P(X>74)**
 
 ```
-estimation_variance <- var(normaliseDecibel)
+1-pnorm(74, mean=64.24, sd=5.02)
 
-output: 1
+output:0.02593428
 ```
+La probabilité que le niveau de bruit dépasse 74db est de *2,6%*
+
+- Niveau de bruit limite au delà duquel les 10% de véhicules les plus bruyants auront une amende
+
+*il suffit de déterminer le niveau de bruit des 90% de véhicules les __moins bruyants__ en utilisant la 
+ fonction qnorm. Cette dernière est l'inverse de pnorm*
+ ```
+ qnorm(0.90, mean=64.24, sd=5.02)
+
+ output: 70.67339
+ ```
+ Le niveau de bruit seuil est donc de *70,67db*
+
+ Remarque: On peut toutefois déterminer ce niveau de bruit seuil directement avec les 10% les plus bruyants. il suffit pour celà 
+ de juste rajouter le paramètre lower.tail à qnorm
+ ```
+ qnorm(0.10, mean=64.24, sd=5.02, lower.tail=FALSE)
+
+ output: 70.67339
+ ```
